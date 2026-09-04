@@ -135,6 +135,44 @@ describe("challengeJsonSchema", () => {
     })
     expect(parsed.published).toBe(false)
     expect(parsed.files[0]?.editable).toBeUndefined()
+    expect(parsed.tags).toEqual([])
+    expect(parsed.estimatedMinutes).toBeUndefined()
+  })
+
+  test("accepts tags and an estimated time", () => {
+    const parsed = challengeJsonSchema.parse({
+      ...validChallenge,
+      tags: ["strings", "error-handling"],
+      estimatedMinutes: 15,
+    })
+    expect(parsed.tags).toEqual(["strings", "error-handling"])
+    expect(parsed.estimatedMinutes).toBe(15)
+  })
+
+  test("rejects malformed, duplicated or excessive tags", () => {
+    expect(challengeJsonSchema.safeParse({ ...validChallenge, tags: ["Strings"] }).success).toBe(
+      false,
+    )
+    expect(challengeJsonSchema.safeParse({ ...validChallenge, tags: [""] }).success).toBe(false)
+    expect(
+      reason(challengeJsonSchema.safeParse({ ...validChallenge, tags: ["go", "go"] })),
+    ).toContain("same tag twice")
+    expect(
+      challengeJsonSchema.safeParse({ ...validChallenge, tags: ["a", "b", "c", "d", "e", "f"] })
+        .success,
+    ).toBe(false)
+  })
+
+  test("rejects a non-positive or fractional estimated time", () => {
+    expect(challengeJsonSchema.safeParse({ ...validChallenge, estimatedMinutes: 0 }).success).toBe(
+      false,
+    )
+    expect(
+      challengeJsonSchema.safeParse({ ...validChallenge, estimatedMinutes: 12.5 }).success,
+    ).toBe(false)
+    expect(
+      challengeJsonSchema.safeParse({ ...validChallenge, estimatedMinutes: 601 }).success,
+    ).toBe(false)
   })
 
   test("rejects an unknown difficulty and an unknown file kind", () => {

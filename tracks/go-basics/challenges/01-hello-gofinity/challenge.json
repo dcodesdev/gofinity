@@ -3,6 +3,8 @@
   "difficulty": "easy",
   "order": 1,
   "published": true,
+  "tags": ["fmt", "strings", "functions"],
+  "estimatedMinutes": 10,
   "files": [
     { "path": "main.go", "kind": "starter" },
     { "path": "main_test.go", "kind": "test" },

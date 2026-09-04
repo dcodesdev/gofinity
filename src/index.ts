@@ -22,6 +22,7 @@ export {
   challengeFileEntrySchema,
   challengeFileKindSchema,
   challengeJsonSchema,
+  challengeTagSchema,
   type Difficulty,
   difficultySchema,
   filePathSchema,

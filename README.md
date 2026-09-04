@@ -93,6 +93,9 @@ directory names, so they cannot drift out of sync with the JSON.
 3. Declare every file in `files/` in `challenge.json`. An undeclared file on
    disk is an error, and so is a declared file that does not exist. A challenge
    needs at least one `starter` file and at least one `test` file.
+   Optionally add `tags` (up to five lowercase topic slugs) and
+   `estimatedMinutes` (how long the challenge should take); both are display
+   metadata, and omitting `estimatedMinutes` is better than guessing.
 4. Check the tests pass against your own solution:
 
    ```sh

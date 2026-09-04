@@ -57,6 +57,8 @@ describe("the real content tree", () => {
     expect(challenge?.order).toBe(1)
     expect(challenge?.difficulty).toBe("easy")
     expect(challenge?.descriptionMd).toContain("Hello, Gofinity")
+    expect(challenge?.tags).toEqual(["fmt", "strings", "functions"])
+    expect(challenge?.estimatedMinutes).toBe(10)
 
     const byPath = new Map(challenge?.files.map((f) => [f.path, f]))
     expect(byPath.get("main.go")?.kind).toBe("starter")
@@ -80,6 +82,25 @@ describe("the real content tree", () => {
     expect(files.get("main.go")).toContain("TODO")
     expect(files.get("main_test.go")).toContain("Hello, World!")
     expect(files.get("go.mod")).toContain("module ")
+  })
+})
+
+describe("optional challenge metadata", () => {
+  test("defaults to no tags and no estimate when the JSON omits them", () => {
+    const root = fixture()
+    const path = join(challengeDir(root), "challenge.json")
+    const { tags: _tags, estimatedMinutes: _estimate, ...rest } = readJson(path)
+    writeJson(path, rest)
+    const challenge = loadContent(root)[0]?.challenges[0]
+    expect(challenge?.tags).toEqual([])
+    expect(challenge?.estimatedMinutes).toBeNull()
+  })
+
+  test("rejects a tag that is not a lowercase slug", () => {
+    const root = fixture()
+    const path = join(challengeDir(root), "challenge.json")
+    writeJson(path, { ...readJson(path), tags: ["Not A Slug"] })
+    expect(() => loadContent(root)).toThrow(/tags\.0/)
   })
 })
 

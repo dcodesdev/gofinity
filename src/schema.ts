@@ -27,6 +27,17 @@ export const challengeDirNameSchema = z
 export const difficultySchema = z.enum(["easy", "medium", "hard"])
 export type Difficulty = z.infer<typeof difficultySchema>
 
+/**
+ * A challenge tag: a short lowercase slug like `strings` or `error-handling`.
+ * Same shape as a slug but capped shorter, because tags are rendered as chips
+ * and a long one breaks the row.
+ */
+export const challengeTagSchema = z
+  .string()
+  .min(1)
+  .max(24)
+  .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "must be a lowercase hyphen-separated slug")
+
 export const challengeFileKindSchema = z.enum(["starter", "test", "hidden", "readonly"])
 export type ChallengeFileKind = z.infer<typeof challengeFileKindSchema>
 
@@ -86,8 +97,13 @@ export const challengeJsonSchema = z
     /** Must match the `NN-` prefix of the directory name. */
     order: z.int().min(0).max(99),
     published: z.boolean().default(false),
+    /** Topic chips, shown on the track rows and in the workspace. */
+    tags: z.array(challengeTagSchema).max(5).default([]),
+    /** Rough time to solve, in minutes. Omitted means "no estimate". */
+    estimatedMinutes: z.int().min(1).max(600).optional(),
     files: z.array(challengeFileEntrySchema).min(1),
   })
+  .refine((c) => new Set(c.tags).size === c.tags.length, "declares the same tag twice")
   .refine(
     (c) => new Set(c.files.map((f) => f.path)).size === c.files.length,
     "declares the same path twice",

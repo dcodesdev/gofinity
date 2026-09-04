@@ -57,6 +57,8 @@ published curriculum honest as challenges land.
   "difficulty": "easy",
   "order": 1,
   "published": true,
+  "tags": ["fmt", "strings", "functions"],
+  "estimatedMinutes": 10,
   "files": [
     { "path": "main.go", "kind": "starter" },
     { "path": "main_test.go", "kind": "test" },
@@ -71,6 +73,8 @@ published curriculum honest as challenges land.
 | `difficulty` | `easy` \| `medium` \| `hard` | yes | Badge only; ordering uses `order`. |
 | `order` | integer 0–99 | yes | Must equal the directory's `NN` prefix. |
 | `published` | boolean | no (`false`) | |
+| `tags` | array of slugs, ≤ 5 | no (`[]`) | Topic chips. Lowercase hyphenated, 1–24 chars, no duplicates. |
+| `estimatedMinutes` | integer 1–600 | no | Rough time to solve. Omit it rather than guessing. |
 | `files` | array, ≥ 1 | yes | Declares every file in `files/`, in tab order. |
 
 File entry:
@@ -91,6 +95,11 @@ File entry:
 
 A challenge must declare each path once, every declared path must exist under
 `files/`, and every file under `files/` must be declared.
+
+`tags` and `estimatedMinutes` are display metadata only — nothing grades or
+orders on them. Tags name the Go topics the challenge exercises (`slices`,
+`error-handling`); keep them few and reuse existing ones rather than inventing a
+synonym.
 
 ## `description.md`
 

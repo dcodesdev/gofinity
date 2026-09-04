@@ -34,6 +34,10 @@ export interface LoadedChallenge {
   difficulty: Difficulty
   order: number
   published: boolean
+  /** Topic chips, in the order the content declares them. */
+  tags: string[]
+  /** Rough time to solve, in minutes, or `null` when the content omits it. */
+  estimatedMinutes: number | null
   descriptionMd: string
   files: LoadedChallengeFile[]
   /** Reference solution files. Fixtures for tests — never served to a browser. */
@@ -180,6 +184,8 @@ function loadChallenge(challengeDir: string, dirName: string): LoadedChallenge {
     difficulty: meta.difficulty,
     order: meta.order,
     published: meta.published,
+    tags: meta.tags,
+    estimatedMinutes: meta.estimatedMinutes ?? null,
     descriptionMd,
     files,
     solutionFiles,
