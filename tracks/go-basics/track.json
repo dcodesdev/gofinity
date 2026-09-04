@@ -1,0 +1,98 @@
+{
+  "title": "Go Basics",
+  "description": "Go from zero to comfortable in Go. Short, test-driven challenges that build on each other: syntax and values first, then the type system, then the parts of Go you cannot get anywhere else — goroutines, channels, and interfaces that stay small.",
+  "order": 0,
+  "published": true,
+  "roadmap": [
+    {
+      "slug": "hello-gofinity",
+      "title": "Hello, Gofinity",
+      "summary": "Your first Go program: packages, func main, and returning a string from a function.",
+      "status": "available"
+    },
+    {
+      "slug": "variables-and-constants",
+      "title": "Variables and Constants",
+      "summary": "var, :=, zero values, typed and untyped constants, and iota.",
+      "status": "planned"
+    },
+    {
+      "slug": "basic-types",
+      "title": "Basic Types and Conversion",
+      "summary": "Integers, floats, runes, strings and bytes, and why Go makes you convert explicitly.",
+      "status": "planned"
+    },
+    {
+      "slug": "control-flow",
+      "title": "Control Flow",
+      "summary": "if with an init statement, the one-and-only for loop, switch without fallthrough.",
+      "status": "planned"
+    },
+    {
+      "slug": "functions-and-multiple-returns",
+      "title": "Functions and Multiple Returns",
+      "summary": "Multiple return values, named results, variadic parameters, and closures.",
+      "status": "planned"
+    },
+    {
+      "slug": "slices-and-arrays",
+      "title": "Slices and Arrays",
+      "summary": "Length versus capacity, append, slicing, copy, and the aliasing traps.",
+      "status": "planned"
+    },
+    {
+      "slug": "maps",
+      "title": "Maps",
+      "summary": "Building maps, the comma-ok lookup, deletion, and iterating in an undefined order.",
+      "status": "planned"
+    },
+    {
+      "slug": "structs",
+      "title": "Structs",
+      "summary": "Composite types, literals, embedding, and struct tags.",
+      "status": "planned"
+    },
+    {
+      "slug": "methods-and-pointers",
+      "title": "Methods and Pointers",
+      "summary": "Pointer versus value receivers, and when a method can mutate.",
+      "status": "planned"
+    },
+    {
+      "slug": "interfaces",
+      "title": "Interfaces",
+      "summary": "Implicit satisfaction, small interfaces, type switches, and the nil interface trap.",
+      "status": "planned"
+    },
+    {
+      "slug": "errors",
+      "title": "Errors",
+      "summary": "Errors as values, wrapping with %w, errors.Is and errors.As, custom error types.",
+      "status": "planned"
+    },
+    {
+      "slug": "goroutines",
+      "title": "Goroutines",
+      "summary": "Starting concurrent work and waiting for it with sync.WaitGroup.",
+      "status": "planned"
+    },
+    {
+      "slug": "channels",
+      "title": "Channels",
+      "summary": "Unbuffered and buffered channels, closing, range over a channel, and select.",
+      "status": "planned"
+    },
+    {
+      "slug": "generics",
+      "title": "Generics",
+      "summary": "Type parameters, constraints, and when a generic helper beats an interface.",
+      "status": "planned"
+    },
+    {
+      "slug": "testing",
+      "title": "Testing",
+      "summary": "Table-driven tests, subtests, t.Helper, and benchmarks.",
+      "status": "planned"
+    }
+  ]
+}

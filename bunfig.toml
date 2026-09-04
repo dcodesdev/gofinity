@@ -1,0 +1,8 @@
+# Turbo runs `bun test` with this workspace as the cwd, and Bun only reads the
+# bunfig.toml in the cwd — so the shared root setup is preloaded explicitly.
+[test]
+preload = ["../../test/preload.ts"]
+coverage = true
+coverageSkipTestFiles = true
+coverageReporter = ["text"]
+coveragePathIgnorePatterns = ["**/preload.ts"]

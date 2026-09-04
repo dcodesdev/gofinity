@@ -1,0 +1,29 @@
+{
+  "name": "@gofinity/content",
+  "version": "0.0.0",
+  "description": "Open-source Go challenge content for Gofinity.",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema.ts",
+    "./load": "./src/load.ts"
+  },
+  "files": [
+    "src",
+    "tracks",
+    "SCHEMA.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "content:check": "bun run scripts/check.ts",
+    "lint": "bunx biome check .",
+    "typecheck": "bunx tsc --noEmit",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "zod": "^4.5.4"
+  }
+}
