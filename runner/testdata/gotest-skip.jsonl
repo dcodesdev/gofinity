@@ -1,0 +1,9 @@
+{"Time":"2026-09-03T15:57:04.76642879Z","Action":"start","Package":"gofinity/hello"}
+{"Time":"2026-09-03T15:57:04.769130687Z","Action":"run","Package":"gofinity/hello","Test":"TestSkipped"}
+{"Time":"2026-09-03T15:57:04.769166538Z","Action":"output","Package":"gofinity/hello","Test":"TestSkipped","Output":"=== RUN   TestSkipped\n"}
+{"Time":"2026-09-03T15:57:04.769198258Z","Action":"output","Package":"gofinity/hello","Test":"TestSkipped","Output":"    main_test.go:6: not today\n"}
+{"Time":"2026-09-03T15:57:04.769207918Z","Action":"output","Package":"gofinity/hello","Test":"TestSkipped","Output":"--- SKIP: TestSkipped (0.00s)\n"}
+{"Time":"2026-09-03T15:57:04.769214749Z","Action":"skip","Package":"gofinity/hello","Test":"TestSkipped","Elapsed":0}
+{"Time":"2026-09-03T15:57:04.769221729Z","Action":"output","Package":"gofinity/hello","Output":"PASS\n"}
+{"Time":"2026-09-03T15:57:04.769598565Z","Action":"output","Package":"gofinity/hello","Output":"ok  \tgofinity/hello\t0.003s\n"}
+{"Time":"2026-09-03T15:57:04.770204356Z","Action":"pass","Package":"gofinity/hello","Elapsed":0.004}

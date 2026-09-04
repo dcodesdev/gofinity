@@ -1,0 +1,20 @@
+{"Time":"2026-09-03T15:57:04.327480797Z","Action":"start","Package":"gofinity/hello"}
+{"Time":"2026-09-03T15:57:04.330115342Z","Action":"run","Package":"gofinity/hello","Test":"TestGreet"}
+{"Time":"2026-09-03T15:57:04.330162823Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet","Output":"=== RUN   TestGreet\n"}
+{"Time":"2026-09-03T15:57:04.330214364Z","Action":"run","Package":"gofinity/hello","Test":"TestGreet/a_name"}
+{"Time":"2026-09-03T15:57:04.330223984Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/a_name","Output":"=== RUN   TestGreet/a_name\n"}
+{"Time":"2026-09-03T15:57:04.330239664Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/a_name","Output":"--- PASS: TestGreet/a_name (0.00s)\n"}
+{"Time":"2026-09-03T15:57:04.330250825Z","Action":"pass","Package":"gofinity/hello","Test":"TestGreet/a_name","Elapsed":0}
+{"Time":"2026-09-03T15:57:04.330262655Z","Action":"run","Package":"gofinity/hello","Test":"TestGreet/another_name"}
+{"Time":"2026-09-03T15:57:04.330270895Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/another_name","Output":"=== RUN   TestGreet/another_name\n"}
+{"Time":"2026-09-03T15:57:04.330282785Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/another_name","Output":"--- PASS: TestGreet/another_name (0.00s)\n"}
+{"Time":"2026-09-03T15:57:04.330291665Z","Action":"pass","Package":"gofinity/hello","Test":"TestGreet/another_name","Elapsed":0}
+{"Time":"2026-09-03T15:57:04.330301396Z","Action":"run","Package":"gofinity/hello","Test":"TestGreet/empty_falls_back_to_World"}
+{"Time":"2026-09-03T15:57:04.330309696Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/empty_falls_back_to_World","Output":"=== RUN   TestGreet/empty_falls_back_to_World\n"}
+{"Time":"2026-09-03T15:57:04.330320356Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/empty_falls_back_to_World","Output":"--- PASS: TestGreet/empty_falls_back_to_World (0.00s)\n"}
+{"Time":"2026-09-03T15:57:04.330329796Z","Action":"pass","Package":"gofinity/hello","Test":"TestGreet/empty_falls_back_to_World","Elapsed":0}
+{"Time":"2026-09-03T15:57:04.330341126Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet","Output":"--- PASS: TestGreet (0.00s)\n"}
+{"Time":"2026-09-03T15:57:04.330349916Z","Action":"pass","Package":"gofinity/hello","Test":"TestGreet","Elapsed":0}
+{"Time":"2026-09-03T15:57:04.330359047Z","Action":"output","Package":"gofinity/hello","Output":"PASS\n"}
+{"Time":"2026-09-03T15:57:04.33056132Z","Action":"output","Package":"gofinity/hello","Output":"ok  \tgofinity/hello\t0.003s\n"}
+{"Time":"2026-09-03T15:57:04.331242582Z","Action":"pass","Package":"gofinity/hello","Elapsed":0.004}

@@ -1,2 +1,7 @@
-.turbo/
 node_modules/
+.turbo/
+
+# `go build ./...` on a main package drops the binary in the working directory.
+runner/runner
+runner/prewarm/prewarm
+runner/bin/

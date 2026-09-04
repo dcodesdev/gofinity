@@ -1,0 +1,13 @@
+{
+  "name": "@gofinity/runner",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:image": "./build.sh",
+    "integration": "./scripts/integration.sh",
+    "lint": "bunx biome check .",
+    "typecheck": "bunx tsc --noEmit",
+    "test": "./scripts/test.sh"
+  }
+}

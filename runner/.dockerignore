@@ -1,0 +1,12 @@
+# The image needs the Go sources, the prewarm module, and nothing else.
+README.md
+package.json
+build.sh
+scripts/
+testdata/
+bin/
+.turbo/
+
+# `go build ./...` leaves the compiled binaries next to the sources.
+runner
+prewarm/prewarm

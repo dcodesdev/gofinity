@@ -1,0 +1,6 @@
+{"ImportPath":"gofinity/hello [gofinity/hello.test]","Action":"build-output","Output":"# gofinity/hello [gofinity/hello.test]\n"}
+{"ImportPath":"gofinity/hello [gofinity/hello.test]","Action":"build-output","Output":"./main.go:4:9: cannot use 1 (untyped int constant) as string value in return statement\n"}
+{"ImportPath":"gofinity/hello [gofinity/hello.test]","Action":"build-fail"}
+{"Time":"2026-09-03T15:57:04.594106529Z","Action":"start","Package":"gofinity/hello"}
+{"Time":"2026-09-03T15:57:04.594179441Z","Action":"output","Package":"gofinity/hello","Output":"FAIL\tgofinity/hello [build failed]\n"}
+{"Time":"2026-09-03T15:57:04.594188221Z","Action":"fail","Package":"gofinity/hello","Elapsed":0,"FailedBuild":"gofinity/hello [gofinity/hello.test]"}

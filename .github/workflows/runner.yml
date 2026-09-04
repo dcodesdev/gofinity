@@ -1,0 +1,105 @@
+name: runner
+
+# This repository is public, which is the whole reason the image is published
+# from here: GHCR storage and bandwidth are free for public packages.
+on:
+  push:
+    branches: [main]
+    paths: ["runner/**", ".github/workflows/runner.yml"]
+  pull_request:
+    paths: ["runner/**", ".github/workflows/runner.yml"]
+  workflow_dispatch:
+
+concurrency:
+  group: runner-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+permissions:
+  contents: read
+
+env:
+  # Must match runner/go.mod. Bump both together.
+  GO_VERSION: "1.25"
+  IMAGE: ghcr.io/dcodesdev/gofinity-runner
+
+jobs:
+  runner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      # Only the push step needs this, and only on main. It is declared at the
+      # job level because that is the smallest scope GitHub offers.
+      packages: write
+    env:
+      # The scripts read this. Everything before the push step works against the
+      # locally-loaded image, never the registry.
+      RUNNER_IMAGE: gofinity-runner:ci
+      REQUIRE_GO: "1"
+      REQUIRE_DOCKER: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+
+      # No go.sum: the runner is standard library only, so there is nothing to
+      # cache and nothing to verify. Keep it that way.
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: false
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.4.0"
+
+      # gofmt, go vet, go test. REQUIRE_GO=1 turns the no-toolchain skip into a
+      # failure, so the coverage cannot quietly vanish.
+      - name: Go tests
+        run: ./scripts/test.sh
+        working-directory: runner
+
+      # `load: true`, no push: the image only has to exist in this runner's
+      # daemon for the integration script. Nothing is published until that
+      # script has passed.
+      - name: Build
+        uses: docker/build-push-action@v6
+        with:
+          context: runner
+          build-args: GO_VERSION=${{ env.GO_VERSION }}
+          tags: ${{ env.RUNNER_IMAGE }}
+          load: true
+          push: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # The container-level properties unit tests cannot reach: the 10s kill
+      # actually killing an infinite loop, and NetworkMode "none" actually
+      # denying the network.
+      - name: Integration
+        run: ./scripts/integration.sh
+        working-directory: runner
+
+      # --- publish ---------------------------------------------------------
+      # main only. A pull request builds and tests exactly the same image and
+      # then throws it away, so a fork's PR can never publish.
+      - name: Log in to GHCR
+        if: github.ref == 'refs/heads/main'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # Every layer is already in the GHA cache from the Build step, so this
+      # re-resolves rather than rebuilds. `latest` is what deployments follow;
+      # the sha tag is what lets you pin or roll back to an exact commit.
+      - name: Push
+        if: github.ref == 'refs/heads/main'
+        uses: docker/build-push-action@v6
+        with:
+          context: runner
+          build-args: GO_VERSION=${{ env.GO_VERSION }}
+          tags: |
+            ${{ env.IMAGE }}:latest
+            ${{ env.IMAGE }}:sha-${{ github.sha }}
+          push: true
+          cache-from: type=gha

@@ -1,23 +1,52 @@
-# @gofinity/content
+# gofinity
 
-The challenge content for Gofinity — tracks,
-challenges, starter files, tests and reference solutions — plus the Zod schemas
-that validate them.
+The open-source half of [Gofinity](https://github.com/dcodesdev/gofinity-app):
+
+| Directory | What it is |
+| --- | --- |
+| `tracks/`, `src/` | challenge content — tracks, starter files, tests, reference solutions — and the Zod schemas that validate them |
+| `runner/` | the sandbox that executes untrusted Go code: a Docker image and the Go entrypoint inside it |
 
 MIT licensed, and open to contributions. A challenge is a directory of Go files
 and one JSON manifest; if you can write a Go test, you can write one.
 
-## This package stands alone
+The platform consumes this repository as a git submodule.
 
-It has **no dependency on any other workspace package** — its only dependency is
-`zod` — because it is meant to be extracted into a standalone public repository.
-Nothing here may import `@gofinity/db`, `@gofinity/api`, or anything else from
-the monorepo. Keep it that way.
+## This repository stands alone
+
+It has **no dependency on any other workspace package** — content's only
+dependency is `zod`, and `runner/` is Go standard library only. Nothing here may
+import `@gofinity/db`, `@gofinity/api`, or anything else from the platform
+monorepo. Keep it that way.
+
+## The runner image
+
+`.github/workflows/runner.yml` builds, tests and publishes `runner/` on every
+commit to `main`:
+
+```sh
+docker pull ghcr.io/dcodesdev/gofinity-runner:latest
+```
+
+`ghcr.io/dcodesdev/gofinity-runner:sha-<commit>` pins one exact commit.
+`runner/README.md` is the reference: the payload, the stdout contract, every
+limit.
+
+```sh
+cd runner
+./build.sh                          # build gofinity-runner:latest locally
+./scripts/test.sh                   # gofmt, go vet, go test
+./scripts/integration.sh            # container-level checks against the image
+```
+
+Both scripts skip when their toolchain is missing; `REQUIRE_GO=1` and
+`REQUIRE_DOCKER=1` turn a skip into a failure, and CI sets both.
 
 ## Prerequisites
 
 - [Bun](https://bun.sh) 1.4+ — validates and tests the tree.
 - Go 1.24+ — for running a challenge's tests the way a learner will.
+- Docker — only to build or test `runner/`.
 
 You do not need Docker, a database, or the rest of the platform to contribute a
 challenge.

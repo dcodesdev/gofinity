@@ -1,0 +1,23 @@
+{"Time":"2026-09-03T15:57:04.525906239Z","Action":"start","Package":"gofinity/hello"}
+{"Time":"2026-09-03T15:57:04.527989806Z","Action":"run","Package":"gofinity/hello","Test":"TestGreet"}
+{"Time":"2026-09-03T15:57:04.528015546Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet","Output":"=== RUN   TestGreet\n"}
+{"Time":"2026-09-03T15:57:04.528036716Z","Action":"run","Package":"gofinity/hello","Test":"TestGreet/a_name"}
+{"Time":"2026-09-03T15:57:04.528040846Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/a_name","Output":"=== RUN   TestGreet/a_name\n"}
+{"Time":"2026-09-03T15:57:04.528046377Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/a_name","Output":"    main_test.go:19: Greet(\"Gofinity\") = \"\", want \"Hello, Gofinity!\"\n"}
+{"Time":"2026-09-03T15:57:04.528057017Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/a_name","Output":"--- FAIL: TestGreet/a_name (0.00s)\n"}
+{"Time":"2026-09-03T15:57:04.528064017Z","Action":"fail","Package":"gofinity/hello","Test":"TestGreet/a_name","Elapsed":0}
+{"Time":"2026-09-03T15:57:04.528071067Z","Action":"run","Package":"gofinity/hello","Test":"TestGreet/another_name"}
+{"Time":"2026-09-03T15:57:04.528074747Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/another_name","Output":"=== RUN   TestGreet/another_name\n"}
+{"Time":"2026-09-03T15:57:04.528079067Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/another_name","Output":"    main_test.go:19: Greet(\"Ada\") = \"\", want \"Hello, Ada!\"\n"}
+{"Time":"2026-09-03T15:57:04.528083827Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/another_name","Output":"--- FAIL: TestGreet/another_name (0.00s)\n"}
+{"Time":"2026-09-03T15:57:04.528087997Z","Action":"fail","Package":"gofinity/hello","Test":"TestGreet/another_name","Elapsed":0}
+{"Time":"2026-09-03T15:57:04.528092087Z","Action":"run","Package":"gofinity/hello","Test":"TestGreet/empty_falls_back_to_World"}
+{"Time":"2026-09-03T15:57:04.528095887Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/empty_falls_back_to_World","Output":"=== RUN   TestGreet/empty_falls_back_to_World\n"}
+{"Time":"2026-09-03T15:57:04.528100877Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/empty_falls_back_to_World","Output":"    main_test.go:19: Greet(\"\") = \"\", want \"Hello, World!\"\n"}
+{"Time":"2026-09-03T15:57:04.528106628Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet/empty_falls_back_to_World","Output":"--- FAIL: TestGreet/empty_falls_back_to_World (0.00s)\n"}
+{"Time":"2026-09-03T15:57:04.528110848Z","Action":"fail","Package":"gofinity/hello","Test":"TestGreet/empty_falls_back_to_World","Elapsed":0}
+{"Time":"2026-09-03T15:57:04.528114988Z","Action":"output","Package":"gofinity/hello","Test":"TestGreet","Output":"--- FAIL: TestGreet (0.00s)\n"}
+{"Time":"2026-09-03T15:57:04.528119048Z","Action":"fail","Package":"gofinity/hello","Test":"TestGreet","Elapsed":0}
+{"Time":"2026-09-03T15:57:04.528122868Z","Action":"output","Package":"gofinity/hello","Output":"FAIL\n"}
+{"Time":"2026-09-03T15:57:04.528735198Z","Action":"output","Package":"gofinity/hello","Output":"FAIL\tgofinity/hello\t0.003s\n"}
+{"Time":"2026-09-03T15:57:04.528767349Z","Action":"fail","Package":"gofinity/hello","Elapsed":0.003}
