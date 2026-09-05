@@ -1,0 +1,13 @@
+{
+  "title": "Type Conversions",
+  "difficulty": "easy",
+  "order": 7,
+  "published": true,
+  "tags": ["types", "numbers", "math"],
+  "estimatedMinutes": 15,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

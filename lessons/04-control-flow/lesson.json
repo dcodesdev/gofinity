@@ -1,0 +1,11 @@
+{
+  "title": "Control flow",
+  "summary": "Go's if, switch and its single for loop: no parentheses, no truthiness, no accidental fallthrough.",
+  "published": true,
+  "estimatedMinutes": 12,
+  "challenges": [
+    { "track": "go-basics", "challenge": "fizzbuzz" },
+    { "track": "go-basics", "challenge": "grade-switch" },
+    { "track": "go-basics", "challenge": "loop-patterns" }
+  ]
+}

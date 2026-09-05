@@ -1,0 +1,11 @@
+{
+  "title": "Channels",
+  "summary": "A channel is a typed pipe with synchronisation built in. Learn what blocks, who closes, and how select turns waiting into a choice, and the rest of Go's concurrency is composition.",
+  "published": true,
+  "estimatedMinutes": 18,
+  "challenges": [
+    { "track": "go-basics", "challenge": "channel-basics" },
+    { "track": "go-basics", "challenge": "buffered-channels" },
+    { "track": "go-basics", "challenge": "select-and-timeout" }
+  ]
+}

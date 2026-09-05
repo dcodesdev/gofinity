@@ -1,0 +1,13 @@
+{
+  "title": "Pointer Safety",
+  "difficulty": "hard",
+  "order": 33,
+  "published": true,
+  "tags": ["pointers", "methods", "structs", "slices"],
+  "estimatedMinutes": 35,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

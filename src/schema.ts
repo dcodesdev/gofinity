@@ -4,7 +4,7 @@ import { z } from "zod"
  * Zod schemas for the on-disk content format.
  *
  * These are the contract external contributors write against. They are
- * deliberately strict — an unknown key is a typo, not an extension point, and
+ * deliberately strict - an unknown key is a typo, not an extension point, and
  * catching it here is far cheaper than discovering it after a seed run.
  *
  * Slugs are *not* part of either JSON file: a track's slug is its directory
@@ -122,3 +122,37 @@ export type ChallengeJson = z.infer<typeof challengeJsonSchema>
 export function isEditableByDefault(kind: ChallengeFileKind): boolean {
   return kind === "starter"
 }
+
+/** `01-what-go-is` → order `1`, slug `what-go-is`. Same rule as a challenge. */
+export const lessonDirNameSchema = z
+  .string()
+  .regex(/^\d{2}-[a-z0-9]+(?:-[a-z0-9]+)*$/, "must look like `NN-lesson-slug`")
+
+/**
+ * One challenge a lesson sends the reader to practise on. Lessons are their own
+ * sequence rather than a per-track appendix, so a reference names its track as
+ * well as its challenge and can point anywhere in the tree.
+ */
+export const lessonChallengeRefSchema = z.strictObject({
+  track: slugSchema,
+  challenge: slugSchema,
+})
+export type LessonChallengeRef = z.infer<typeof lessonChallengeRefSchema>
+
+/** `lessons/<NN-lesson-slug>/lesson.json`. */
+export const lessonJsonSchema = z
+  .strictObject({
+    title: z.string().min(1).max(120),
+    summary: z.string().min(1).max(400),
+    published: z.boolean().default(false),
+    /** Rough time to read, in minutes. Omitted means "no estimate". */
+    estimatedMinutes: z.int().min(1).max(600).optional(),
+    /** The challenges this lesson drills, in the order they should be attempted. */
+    challenges: z.array(lessonChallengeRefSchema).min(1).max(4),
+  })
+  .refine(
+    (l) =>
+      new Set(l.challenges.map((c) => `${c.track}/${c.challenge}`)).size === l.challenges.length,
+    "references the same challenge twice",
+  )
+export type LessonJson = z.infer<typeof lessonJsonSchema>

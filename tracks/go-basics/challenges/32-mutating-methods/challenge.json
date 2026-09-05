@@ -1,0 +1,13 @@
+{
+  "title": "Mutating Methods",
+  "difficulty": "medium",
+  "order": 32,
+  "published": true,
+  "tags": ["methods", "pointers", "slices", "maps"],
+  "estimatedMinutes": 30,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

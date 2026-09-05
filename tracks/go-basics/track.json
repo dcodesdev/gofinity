@@ -1,6 +1,6 @@
 {
   "title": "Go Basics",
-  "description": "Go from zero to comfortable in Go. Short, test-driven challenges that build on each other: syntax and values first, then the type system, then the parts of Go you cannot get anywhere else — goroutines, channels, and interfaces that stay small.",
+  "description": "Go from zero to hero: 22 concepts, each taught by a lesson and drilled by two or three test-driven challenges. Syntax and values first, then the type system, then errors, generics and packages, and finally the parts of Go you cannot get anywhere else: goroutines, channels, sync and context. Every challenge is graded by tests you can read.",
   "order": 0,
   "published": true,
   "roadmap": [
@@ -11,88 +11,376 @@
       "status": "available"
     },
     {
+      "slug": "greeting-lines",
+      "title": "Greeting Lines",
+      "summary": "Build a multi-line greeting with fmt.Sprintf and strings.Join.",
+      "status": "available"
+    },
+    {
       "slug": "variables-and-constants",
       "title": "Variables and Constants",
-      "summary": "var, :=, zero values, typed and untyped constants, and iota.",
-      "status": "planned"
+      "summary": "var versus :=, typed and untyped constants, and when each one reads better.",
+      "status": "available"
     },
     {
-      "slug": "basic-types",
-      "title": "Basic Types and Conversion",
-      "summary": "Integers, floats, runes, strings and bytes, and why Go makes you convert explicitly.",
-      "status": "planned"
+      "slug": "zero-values",
+      "title": "Zero Values",
+      "summary": "What every type starts as before you assign it, and why Go has no uninitialised memory.",
+      "status": "available"
     },
     {
-      "slug": "control-flow",
-      "title": "Control Flow",
-      "summary": "if with an init statement, the one-and-only for loop, switch without fallthrough.",
-      "status": "planned"
+      "slug": "iota-weekdays",
+      "title": "Weekdays with iota",
+      "summary": "Enumerations built from iota, and giving them a String method.",
+      "status": "available"
     },
     {
-      "slug": "functions-and-multiple-returns",
-      "title": "Functions and Multiple Returns",
-      "summary": "Multiple return values, named results, variadic parameters, and closures.",
-      "status": "planned"
+      "slug": "type-conversions",
+      "title": "Type Conversions",
+      "summary": "Explicit conversion between numeric types, and the truncation you have to plan for.",
+      "status": "available"
     },
     {
-      "slug": "slices-and-arrays",
-      "title": "Slices and Arrays",
-      "summary": "Length versus capacity, append, slicing, copy, and the aliasing traps.",
-      "status": "planned"
+      "slug": "runes-and-bytes",
+      "title": "Runes and Bytes",
+      "summary": "A string is bytes; ranging over it yields runes. Counting either one correctly.",
+      "status": "available"
     },
     {
-      "slug": "maps",
-      "title": "Maps",
-      "summary": "Building maps, the comma-ok lookup, deletion, and iterating in an undefined order.",
-      "status": "planned"
+      "slug": "temperature-convert",
+      "title": "Temperature Conversion",
+      "summary": "Integer and float arithmetic together, with rounding you control.",
+      "status": "available"
     },
     {
-      "slug": "structs",
-      "title": "Structs",
-      "summary": "Composite types, literals, embedding, and struct tags.",
-      "status": "planned"
+      "slug": "fizzbuzz",
+      "title": "FizzBuzz",
+      "summary": "if, else if, and the modulo operator, in the smallest program that needs all three.",
+      "status": "available"
     },
     {
-      "slug": "methods-and-pointers",
-      "title": "Methods and Pointers",
-      "summary": "Pointer versus value receivers, and when a method can mutate.",
-      "status": "planned"
+      "slug": "grade-switch",
+      "title": "Grade Switch",
+      "summary": "switch without fallthrough, switch with no expression, and default.",
+      "status": "available"
     },
     {
-      "slug": "interfaces",
-      "title": "Interfaces",
-      "summary": "Implicit satisfaction, small interfaces, type switches, and the nil interface trap.",
-      "status": "planned"
+      "slug": "loop-patterns",
+      "title": "Loop Patterns",
+      "summary": "Go's one for loop as a counter, a while, a range and an infinite loop with break.",
+      "status": "available"
     },
     {
-      "slug": "errors",
-      "title": "Errors",
-      "summary": "Errors as values, wrapping with %w, errors.Is and errors.As, custom error types.",
-      "status": "planned"
+      "slug": "multiple-returns",
+      "title": "Multiple Returns",
+      "summary": "Returning a value and an ok flag, named results, and the blank identifier.",
+      "status": "available"
     },
     {
-      "slug": "goroutines",
-      "title": "Goroutines",
-      "summary": "Starting concurrent work and waiting for it with sync.WaitGroup.",
-      "status": "planned"
+      "slug": "variadic-sum",
+      "title": "Variadic Sum",
+      "summary": "Variadic parameters, spreading a slice into one, and the empty-args case.",
+      "status": "available"
     },
     {
-      "slug": "channels",
-      "title": "Channels",
-      "summary": "Unbuffered and buffered channels, closing, range over a channel, and select.",
-      "status": "planned"
+      "slug": "closure-counter",
+      "title": "Closure Counter",
+      "summary": "Functions as values, and closing over state that outlives the call.",
+      "status": "available"
     },
     {
-      "slug": "generics",
-      "title": "Generics",
-      "summary": "Type parameters, constraints, and when a generic helper beats an interface.",
-      "status": "planned"
+      "slug": "defer-order",
+      "title": "Defer Order",
+      "summary": "Deferred calls run last-in first-out, and their arguments evaluate immediately.",
+      "status": "available"
     },
     {
-      "slug": "testing",
-      "title": "Testing",
-      "summary": "Table-driven tests, subtests, t.Helper, and benchmarks.",
-      "status": "planned"
+      "slug": "safe-divide",
+      "title": "Safe Divide",
+      "summary": "recover turning a panic into an error value at the boundary of a function.",
+      "status": "available"
+    },
+    {
+      "slug": "cleanup-with-defer",
+      "title": "Cleanup with defer",
+      "summary": "Releasing what you acquired on every exit path, including the panicking one.",
+      "status": "available"
+    },
+    {
+      "slug": "slice-basics",
+      "title": "Slice Basics",
+      "summary": "Length versus capacity, slicing with low and high bounds, and out-of-range.",
+      "status": "available"
+    },
+    {
+      "slug": "append-and-copy",
+      "title": "Append and Copy",
+      "summary": "How append grows a slice, when it reallocates, and what copy actually copies.",
+      "status": "available"
+    },
+    {
+      "slug": "slice-aliasing",
+      "title": "Slice Aliasing",
+      "summary": "Two slices sharing one array, and the bug that follows if you forget.",
+      "status": "available"
+    },
+    {
+      "slug": "map-basics",
+      "title": "Map Basics",
+      "summary": "Making a map, the comma-ok lookup, delete, and len.",
+      "status": "available"
+    },
+    {
+      "slug": "word-count",
+      "title": "Word Count",
+      "summary": "Counting occurrences into a map, then sorting the keys for a stable answer.",
+      "status": "available"
+    },
+    {
+      "slug": "map-of-slices",
+      "title": "Map of Slices",
+      "summary": "Grouping values under a key, and appending into a missing entry safely.",
+      "status": "available"
+    },
+    {
+      "slug": "strings-toolkit",
+      "title": "Strings Toolkit",
+      "summary": "Split, Join, TrimSpace, Fields, Contains and friends, used together.",
+      "status": "available"
+    },
+    {
+      "slug": "strconv-parse",
+      "title": "Parsing with strconv",
+      "summary": "Atoi, ParseFloat, ParseBool, and treating their errors as data.",
+      "status": "available"
+    },
+    {
+      "slug": "string-builder",
+      "title": "String Builder",
+      "summary": "Why += in a loop is quadratic, and what strings.Builder does instead.",
+      "status": "available"
+    },
+    {
+      "slug": "struct-basics",
+      "title": "Struct Basics",
+      "summary": "Declaring a struct, literals with field names, and passing one by value.",
+      "status": "available"
+    },
+    {
+      "slug": "struct-embedding",
+      "title": "Struct Embedding",
+      "summary": "Composition by embedding, promoted fields, and shadowing.",
+      "status": "available"
+    },
+    {
+      "slug": "struct-equality",
+      "title": "Struct Equality",
+      "summary": "Which structs compare with ==, which do not, and how to compare the rest.",
+      "status": "available"
+    },
+    {
+      "slug": "value-vs-pointer-receiver",
+      "title": "Value versus Pointer Receiver",
+      "summary": "Why a value receiver cannot mutate, and what the method set means.",
+      "status": "available"
+    },
+    {
+      "slug": "mutating-methods",
+      "title": "Mutating Methods",
+      "summary": "Building a small type whose methods change its state, correctly.",
+      "status": "available"
+    },
+    {
+      "slug": "pointer-safety",
+      "title": "Pointer Safety",
+      "summary": "Nil pointers, the address of a loop variable, and returning a pointer to a local.",
+      "status": "available"
+    },
+    {
+      "slug": "shape-interface",
+      "title": "The Shape Interface",
+      "summary": "Implicit satisfaction: two types, one small interface, no declaration between them.",
+      "status": "available"
+    },
+    {
+      "slug": "type-switch",
+      "title": "Type Switch",
+      "summary": "Recovering the concrete type behind an interface value, exhaustively.",
+      "status": "available"
+    },
+    {
+      "slug": "nil-interface-trap",
+      "title": "The Nil Interface Trap",
+      "summary": "Why an interface holding a nil pointer is not itself nil.",
+      "status": "available"
+    },
+    {
+      "slug": "error-values",
+      "title": "Error Values",
+      "summary": "Returning errors instead of throwing, and checking them at the call site.",
+      "status": "available"
+    },
+    {
+      "slug": "wrapping-errors",
+      "title": "Wrapping Errors",
+      "summary": "%w, errors.Is and errors.As, and keeping the sentinel comparable.",
+      "status": "available"
+    },
+    {
+      "slug": "custom-error-type",
+      "title": "Custom Error Type",
+      "summary": "A struct that implements error, carrying the fields a caller can act on.",
+      "status": "available"
+    },
+    {
+      "slug": "generic-map-filter",
+      "title": "Generic Map and Filter",
+      "summary": "Type parameters on a function, and inference doing the work at the call site.",
+      "status": "available"
+    },
+    {
+      "slug": "number-constraint",
+      "title": "Number Constraints",
+      "summary": "Constraint interfaces with type sets, and a Sum that works for every numeric type.",
+      "status": "available"
+    },
+    {
+      "slug": "generic-stack",
+      "title": "Generic Stack",
+      "summary": "A type parameter on a type, with methods that stay type-safe.",
+      "status": "available"
+    },
+    {
+      "slug": "split-into-package",
+      "title": "Split into a Package",
+      "summary": "Moving code into a subpackage and importing it through the module path.",
+      "status": "available"
+    },
+    {
+      "slug": "exported-identifiers",
+      "title": "Exported Identifiers",
+      "summary": "Capitalisation as visibility, and designing the surface a package exposes.",
+      "status": "available"
+    },
+    {
+      "slug": "json-marshal",
+      "title": "Marshalling JSON",
+      "summary": "Turning a struct into JSON, and what encoding/json does with each field.",
+      "status": "available"
+    },
+    {
+      "slug": "json-decode",
+      "title": "Decoding JSON",
+      "summary": "Unmarshal into a struct, and into a map when the shape is not known ahead.",
+      "status": "available"
+    },
+    {
+      "slug": "json-tags",
+      "title": "JSON Tags",
+      "summary": "Renaming fields, omitempty, ignoring a field, and round-tripping the result.",
+      "status": "available"
+    },
+    {
+      "slug": "goroutine-waitgroup",
+      "title": "Goroutines and WaitGroup",
+      "summary": "Starting concurrent work and waiting for all of it to finish.",
+      "status": "available"
+    },
+    {
+      "slug": "parallel-sum",
+      "title": "Parallel Sum",
+      "summary": "Splitting work across goroutines and collecting the parts without a data race.",
+      "status": "available"
+    },
+    {
+      "slug": "fan-out-work",
+      "title": "Fan Out Work",
+      "summary": "A fixed pool of workers draining a queue, with deterministic output.",
+      "status": "available"
+    },
+    {
+      "slug": "channel-basics",
+      "title": "Channel Basics",
+      "summary": "Sending, receiving, closing, and ranging over a channel.",
+      "status": "available"
+    },
+    {
+      "slug": "buffered-channels",
+      "title": "Buffered Channels",
+      "summary": "Capacity, when a send blocks, and using a buffer as a semaphore.",
+      "status": "available"
+    },
+    {
+      "slug": "select-and-timeout",
+      "title": "Select and Timeout",
+      "summary": "Waiting on several channels at once, with a timeout and a default.",
+      "status": "available"
+    },
+    {
+      "slug": "mutex-counter",
+      "title": "Mutex Counter",
+      "summary": "Guarding shared state with sync.Mutex, and unlocking with defer.",
+      "status": "available"
+    },
+    {
+      "slug": "rwmutex-cache",
+      "title": "RWMutex Cache",
+      "summary": "Many readers, one writer, and the double-checked write in a cache.",
+      "status": "available"
+    },
+    {
+      "slug": "sync-once",
+      "title": "Sync Once",
+      "summary": "Initialising exactly once, however many goroutines get there first.",
+      "status": "available"
+    },
+    {
+      "slug": "context-cancel",
+      "title": "Context Cancellation",
+      "summary": "Passing a context, selecting on Done, and stopping work on request.",
+      "status": "available"
+    },
+    {
+      "slug": "context-deadline",
+      "title": "Context Deadlines",
+      "summary": "WithTimeout and WithDeadline, and reporting ctx.Err to the caller.",
+      "status": "available"
+    },
+    {
+      "slug": "context-values",
+      "title": "Context Values",
+      "summary": "Carrying a request-scoped value, and why it is the last resort, not the first.",
+      "status": "available"
+    },
+    {
+      "slug": "table-driven-tests",
+      "title": "Table-Driven Tests",
+      "summary": "The standard Go test shape: a slice of cases, one loop, clear failures.",
+      "status": "available"
+    },
+    {
+      "slug": "subtests-and-helpers",
+      "title": "Subtests and Helpers",
+      "summary": "t.Run for isolation, t.Helper for readable line numbers, and cleanup.",
+      "status": "available"
+    },
+    {
+      "slug": "benchmark-basics",
+      "title": "Benchmark Basics",
+      "summary": "Writing a benchmark that measures the thing you meant to measure.",
+      "status": "available"
+    },
+    {
+      "slug": "capstone-word-frequency",
+      "title": "Capstone: Word Frequency",
+      "summary": "Strings, maps, sorting and errors in one program with a real output format.",
+      "status": "available"
+    },
+    {
+      "slug": "capstone-log-parser",
+      "title": "Capstone: Log Parser",
+      "summary": "Structs, interfaces, errors and concurrency combined on a realistic input.",
+      "status": "available"
     }
   ]
 }

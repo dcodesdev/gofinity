@@ -1,0 +1,11 @@
+{
+  "title": "Context",
+  "summary": "Every long-running job needs a way to be told to stop: a request is abandoned, a deadline passes, a server shuts down. context.Context is the one value Go passes down a call tree to carry cancellation, a deadline, and the handful of request-scoped values that belong with them.",
+  "published": true,
+  "estimatedMinutes": 17,
+  "challenges": [
+    { "track": "go-basics", "challenge": "context-cancel" },
+    { "track": "go-basics", "challenge": "context-deadline" },
+    { "track": "go-basics", "challenge": "context-values" }
+  ]
+}

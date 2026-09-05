@@ -1,0 +1,11 @@
+{
+  "title": "Values and variables",
+  "summary": "const, var and :=, the zero value every type starts at, and enumerations built from iota.",
+  "published": true,
+  "estimatedMinutes": 10,
+  "challenges": [
+    { "track": "go-basics", "challenge": "variables-and-constants" },
+    { "track": "go-basics", "challenge": "zero-values" },
+    { "track": "go-basics", "challenge": "iota-weekdays" }
+  ]
+}

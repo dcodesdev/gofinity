@@ -1,0 +1,13 @@
+{
+  "title": "Select and Timeout",
+  "difficulty": "hard",
+  "order": 54,
+  "published": true,
+  "tags": ["concurrency", "channels", "goroutines", "waitgroup"],
+  "estimatedMinutes": 35,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

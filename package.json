@@ -19,6 +19,8 @@
   ],
   "scripts": {
     "content:check": "bun run scripts/check.ts",
+    "content:verify": "bun run scripts/verify-challenge.ts",
+    "content:links": "bun run scripts/link-report.ts",
     "lint": "bunx biome check .",
     "typecheck": "bunx tsc --noEmit",
     "test": "bun test"

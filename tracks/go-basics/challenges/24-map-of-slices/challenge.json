@@ -1,0 +1,13 @@
+{
+  "title": "Map of Slices",
+  "difficulty": "medium",
+  "order": 24,
+  "published": true,
+  "tags": ["maps", "slices", "sorting"],
+  "estimatedMinutes": 30,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

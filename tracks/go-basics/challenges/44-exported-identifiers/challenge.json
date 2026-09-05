@@ -1,0 +1,15 @@
+{
+  "title": "Exported Identifiers",
+  "difficulty": "medium",
+  "order": 44,
+  "published": true,
+  "tags": ["packages", "structs", "methods", "errors"],
+  "estimatedMinutes": 30,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "bank/bank.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "bank/bank_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

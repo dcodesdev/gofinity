@@ -1,0 +1,10 @@
+{
+  "title": "Packages and Modules",
+  "summary": "A package is a directory, a module is a tree of them with a name, and capitalisation is the only visibility keyword Go has.",
+  "published": true,
+  "estimatedMinutes": 16,
+  "challenges": [
+    { "track": "go-basics", "challenge": "split-into-package" },
+    { "track": "go-basics", "challenge": "exported-identifiers" }
+  ]
+}

@@ -156,7 +156,7 @@ func TestEntrypointReportsABadPayloadAsARunnerError(t *testing.T) {
 		t.Error("ok = true on a runner error")
 	}
 	if result.Tests == nil {
-		t.Error("tests is null — the consumer should never have to null-check it")
+		t.Error("tests is null - the consumer should never have to null-check it")
 	}
 }
 
@@ -183,7 +183,7 @@ func TestEmitFramesExactlyOneResult(t *testing.T) {
 	}
 }
 
-// Stray output around the sentinels must not break extraction — that is the
+// Stray output around the sentinels must not break extraction - that is the
 // entire reason the framing exists.
 func TestExtractResultIgnoresStrayOutput(t *testing.T) {
 	var buf bytes.Buffer

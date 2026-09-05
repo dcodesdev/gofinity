@@ -1,0 +1,11 @@
+{
+  "title": "Strings and Formatting",
+  "summary": "The strings package instead of methods, strconv for parsing, strings.Builder instead of += in a loop, and the fmt verbs worth memorising.",
+  "published": true,
+  "estimatedMinutes": 14,
+  "challenges": [
+    { "track": "go-basics", "challenge": "strings-toolkit" },
+    { "track": "go-basics", "challenge": "strconv-parse" },
+    { "track": "go-basics", "challenge": "string-builder" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Zero Values",
+  "difficulty": "easy",
+  "order": 5,
+  "published": true,
+  "tags": ["fmt", "variables", "slices"],
+  "estimatedMinutes": 20,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

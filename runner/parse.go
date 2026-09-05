@@ -28,7 +28,7 @@ type ParsedRun struct {
 	// Stdout is the reconstructed human-readable output.
 	Stdout string
 	// BuildFailed is true when the toolchain reported a build failure, which is
-	// a compile error in the user's code — a distinct thing from a failing test
+	// a compile error in the user's code - a distinct thing from a failing test
 	// and worth telling them apart in the UI.
 	BuildFailed bool
 }

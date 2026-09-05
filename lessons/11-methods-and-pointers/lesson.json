@@ -1,0 +1,11 @@
+{
+  "title": "Methods and Pointers",
+  "summary": "Receivers are ordinary parameters: which one you pick decides whether a method can mutate, what an interface will accept, and when a nil pointer is still usable.",
+  "published": true,
+  "estimatedMinutes": 15,
+  "challenges": [
+    { "track": "go-basics", "challenge": "value-vs-pointer-receiver" },
+    { "track": "go-basics", "challenge": "mutating-methods" },
+    { "track": "go-basics", "challenge": "pointer-safety" }
+  ]
+}

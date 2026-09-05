@@ -1,0 +1,13 @@
+{
+  "title": "Table-Driven Tests",
+  "difficulty": "easy",
+  "order": 61,
+  "published": true,
+  "tags": ["testing", "slices", "functions"],
+  "estimatedMinutes": 25,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

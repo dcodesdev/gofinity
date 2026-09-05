@@ -1,0 +1,13 @@
+{
+  "title": "Multiple Returns",
+  "difficulty": "easy",
+  "order": 13,
+  "published": true,
+  "tags": ["functions", "numbers", "strings"],
+  "estimatedMinutes": 20,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

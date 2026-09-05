@@ -1,0 +1,11 @@
+{
+  "title": "Goroutines",
+  "summary": "A goroutine is a function running independently, and nothing waits for it. The whole concept is one keyword, one type, and one rule about who owns which piece of memory.",
+  "published": true,
+  "estimatedMinutes": 16,
+  "challenges": [
+    { "track": "go-basics", "challenge": "goroutine-waitgroup" },
+    { "track": "go-basics", "challenge": "parallel-sum" },
+    { "track": "go-basics", "challenge": "fan-out-work" }
+  ]
+}

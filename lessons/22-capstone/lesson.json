@@ -1,0 +1,10 @@
+{
+  "title": "Capstone",
+  "summary": "Twenty-one concepts, and no real program uses one of them at a time. This is how they fit together: a pipeline of small functions with values between them, errors that carry the context to be acted on, an interface at the seam where the work stops caring what happens next, and the rules that keep a concurrent program's output the same on every run.",
+  "published": true,
+  "estimatedMinutes": 16,
+  "challenges": [
+    { "track": "go-basics", "challenge": "capstone-word-frequency" },
+    { "track": "go-basics", "challenge": "capstone-log-parser" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Capstone: Word Frequency",
+  "difficulty": "medium",
+  "order": 64,
+  "published": true,
+  "tags": ["strings", "maps", "sorting", "errors", "fmt"],
+  "estimatedMinutes": 40,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

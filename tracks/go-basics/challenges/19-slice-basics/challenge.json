@@ -1,0 +1,13 @@
+{
+  "title": "Slice Basics",
+  "difficulty": "easy",
+  "order": 19,
+  "published": true,
+  "tags": ["slices", "arrays", "fmt"],
+  "estimatedMinutes": 20,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

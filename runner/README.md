@@ -32,11 +32,11 @@ hand.
 
 ```jsonc
 {
-  "files": [                          // 1–64 entries, required
+  "files": [                          // 1-64 entries, required
     { "path": "main.go", "content": "package main…" }
   ],
   "command": ["go", "test", "-json", "./..."], // optional, must start with "go"
-  "timeoutMs": 10000                  // optional, 500–30000, default 10000
+  "timeoutMs": 10000                  // optional, 500-30000, default 10000
 }
 ```
 
@@ -44,13 +44,13 @@ Rejected before anything is written:
 
 | Rule | Limit |
 | --- | --- |
-| Files | 1–64 |
+| Files | 1-64 |
 | Bytes per file | 256 KiB |
 | Bytes total | 1 MiB |
 | Path length | 255 |
 | Path shape | relative, `/`-separated, no empty / `.` / `..` segment |
 | Command | must start with `go` |
-| `timeoutMs` | 500–30 000 |
+| `timeoutMs` | 500-30 000 |
 
 The path rules are the same ones `packages/gofinity/src/schema.ts` enforces on
 content. Both ends check: content is validated at seed time, submissions at API
@@ -70,7 +70,7 @@ Exactly one JSON object, wrapped in sentinels:
 take everything up to the next `<<<GOFINITY:END>>>` line, parse it as JSON.
 
 The framing exists because stdout is not exclusively ours. The runner captures
-the subprocess's streams, so in practice nothing else is printed — but a panic
+the subprocess's streams, so in practice nothing else is printed - but a panic
 in the entrypoint, or a future change, could land on the same stream, and the
 consumer must not have to guess which line is the result.
 
@@ -94,7 +94,7 @@ consumer must not have to guess which line is the result.
   "exitCode": 0,
   "timedOut": false,
   "durationMs": 812,
-  "error": "…"         // present ONLY on runner-level failure — see below
+  "error": "…"         // present ONLY on runner-level failure - see below
 }
 ```
 
@@ -111,6 +111,11 @@ things to the person reading them:
 A failing test is **not** an error: `error` is only ever a malformed payload, a
 workspace that could not be written, or a missing `go` binary.
 
+`error` is **operator-facing**. It is read by whatever runs the container, and
+is never shown to the person who wrote the code, so it may name the payload
+environment variable, the workspace path, the `go` binary or anything else that
+helps diagnose the failure. Keep it verbose and specific.
+
 Exit code: `0` whenever a result was produced (including a failing one), `1` on
 a runner-level error. Read `ok`, not the exit code, to decide whether a
 submission passed.
@@ -124,7 +129,7 @@ testing what actually ships:
 ```
 --network none                 no DNS, no proxy, no exfiltration
 --read-only                    the root filesystem is immutable
---tmpfs /tmp:rw,exec,size=256m everything writable, and `exec` — see below
+--tmpfs /tmp:rw,exec,size=256m everything writable, and `exec` - see below
 --user 65532:65532             non-root, fixed uid baked into the image
 --cap-drop ALL                 no capabilities at all
 --security-opt no-new-privileges
@@ -148,7 +153,7 @@ Warming is best-effort: a failure makes the run slow, not wrong.
 
 ## Timeouts
 
-The payload's `timeoutMs` is the *outer* kill — what the API gives the
+The payload's `timeoutMs` is the *outer* kill - what the API gives the
 container. The entrypoint sets its own deadline 750 ms below that, so a run that
 overruns still returns a real result (partial output, the tests that did finish)
 instead of the API only learning that the container vanished.

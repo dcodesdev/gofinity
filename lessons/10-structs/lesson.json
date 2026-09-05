@@ -1,0 +1,11 @@
+{
+  "title": "Structs",
+  "summary": "Go's only aggregate type: named-field literals, value semantics, embedding instead of inheritance, and the rules that decide whether == compiles.",
+  "published": true,
+  "estimatedMinutes": 14,
+  "challenges": [
+    { "track": "go-basics", "challenge": "struct-basics" },
+    { "track": "go-basics", "challenge": "struct-embedding" },
+    { "track": "go-basics", "challenge": "struct-equality" }
+  ]
+}

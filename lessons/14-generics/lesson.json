@@ -1,0 +1,11 @@
+{
+  "title": "Generics",
+  "summary": "Type parameters let one function or one type work for many element types, with the compiler still checking every call: constraints say what a T is allowed to do.",
+  "published": true,
+  "estimatedMinutes": 18,
+  "challenges": [
+    { "track": "go-basics", "challenge": "generic-map-filter" },
+    { "track": "go-basics", "challenge": "number-constraint" },
+    { "track": "go-basics", "challenge": "generic-stack" }
+  ]
+}

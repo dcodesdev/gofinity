@@ -1,0 +1,13 @@
+{
+  "title": "Closure Counter",
+  "difficulty": "medium",
+  "order": 15,
+  "published": true,
+  "tags": ["functions", "closures", "slices"],
+  "estimatedMinutes": 30,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

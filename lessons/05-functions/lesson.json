@@ -1,0 +1,11 @@
+{
+  "title": "Functions",
+  "summary": "Multiple return values, named results, variadic parameters, and functions as values that close over state.",
+  "published": true,
+  "estimatedMinutes": 14,
+  "challenges": [
+    { "track": "go-basics", "challenge": "multiple-returns" },
+    { "track": "go-basics", "challenge": "variadic-sum" },
+    { "track": "go-basics", "challenge": "closure-counter" }
+  ]
+}

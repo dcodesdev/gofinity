@@ -1,0 +1,13 @@
+{
+  "title": "Parallel Sum",
+  "difficulty": "medium",
+  "order": 50,
+  "published": true,
+  "tags": ["concurrency", "goroutines", "waitgroup", "slices"],
+  "estimatedMinutes": 30,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

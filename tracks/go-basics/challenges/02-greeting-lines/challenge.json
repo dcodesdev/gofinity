@@ -1,0 +1,13 @@
+{
+  "title": "Greeting Lines",
+  "difficulty": "easy",
+  "order": 2,
+  "published": true,
+  "tags": ["fmt", "strings", "functions"],
+  "estimatedMinutes": 15,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

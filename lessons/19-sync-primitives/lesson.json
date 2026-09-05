@@ -1,0 +1,11 @@
+{
+  "title": "Sync Primitives",
+  "summary": "Channels move values between goroutines. Sometimes goroutines need to share the same memory instead: a counter, a cache, a one-time setup. sync.Mutex, sync.RWMutex and sync.Once are the three tools that make that safe.",
+  "published": true,
+  "estimatedMinutes": 16,
+  "challenges": [
+    { "track": "go-basics", "challenge": "mutex-counter" },
+    { "track": "go-basics", "challenge": "rwmutex-cache" },
+    { "track": "go-basics", "challenge": "sync-once" }
+  ]
+}

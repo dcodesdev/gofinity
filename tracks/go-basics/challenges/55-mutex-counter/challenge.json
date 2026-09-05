@@ -1,0 +1,13 @@
+{
+  "title": "Mutex Counter",
+  "difficulty": "easy",
+  "order": 55,
+  "published": true,
+  "tags": ["concurrency", "sync", "mutex", "goroutines"],
+  "estimatedMinutes": 25,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

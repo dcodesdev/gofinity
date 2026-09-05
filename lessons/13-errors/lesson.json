@@ -1,0 +1,11 @@
+{
+  "title": "Errors",
+  "summary": "Go has no exceptions: failure is a value returned alongside the result, wrapped with context on the way up, and inspected with errors.Is and errors.As.",
+  "published": true,
+  "estimatedMinutes": 17,
+  "challenges": [
+    { "track": "go-basics", "challenge": "error-values" },
+    { "track": "go-basics", "challenge": "wrapping-errors" },
+    { "track": "go-basics", "challenge": "custom-error-type" }
+  ]
+}

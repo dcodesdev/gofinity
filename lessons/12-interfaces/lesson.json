@@ -1,0 +1,11 @@
+{
+  "title": "Interfaces",
+  "summary": "A type satisfies an interface by having its methods, and nothing else: no declaration, no registration, and one famous trap where a nil pointer is not a nil interface.",
+  "published": true,
+  "estimatedMinutes": 16,
+  "challenges": [
+    { "track": "go-basics", "challenge": "shape-interface" },
+    { "track": "go-basics", "challenge": "type-switch" },
+    { "track": "go-basics", "challenge": "nil-interface-trap" }
+  ]
+}

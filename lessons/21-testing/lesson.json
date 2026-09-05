@@ -1,0 +1,11 @@
+{
+  "title": "Testing",
+  "summary": "Go ships its test runner, its benchmark harness and its coverage tool in the toolchain, and gives you no assertion library at all. What you get instead is one shape - a table of cases, a loop, a subtest each - plus the helpers, the cleanup and the measurement rules that keep it honest.",
+  "published": true,
+  "estimatedMinutes": 18,
+  "challenges": [
+    { "track": "go-basics", "challenge": "table-driven-tests" },
+    { "track": "go-basics", "challenge": "subtests-and-helpers" },
+    { "track": "go-basics", "challenge": "benchmark-basics" }
+  ]
+}

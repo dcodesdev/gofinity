@@ -78,7 +78,7 @@ func TestParseGoTestJSONOnACompileError(t *testing.T) {
 		t.Error("BuildFailed = false on output that contains a build-fail event")
 	}
 	if len(run.Tests) != 0 {
-		t.Errorf("tests = %v, want none — nothing ran", testNames(run))
+		t.Errorf("tests = %v, want none - nothing ran", testNames(run))
 	}
 	// The compiler's message must survive into stdout or the user is told
 	// nothing at all about why their code did not build.

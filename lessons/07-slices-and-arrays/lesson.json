@@ -1,0 +1,11 @@
+{
+  "title": "Slices and Arrays",
+  "summary": "The three-word slice header, the gap between length and capacity, and why two slices can quietly describe the same memory.",
+  "published": true,
+  "estimatedMinutes": 14,
+  "challenges": [
+    { "track": "go-basics", "challenge": "slice-basics" },
+    { "track": "go-basics", "challenge": "append-and-copy" },
+    { "track": "go-basics", "challenge": "slice-aliasing" }
+  ]
+}

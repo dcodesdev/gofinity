@@ -15,7 +15,7 @@ func TestInternalTimeoutSitsBelowTheOuterKill(t *testing.T) {
 		{outerMs: DefaultTimeoutMs, want: 9250 * time.Millisecond},
 		{outerMs: MaxTimeoutMs, want: 29250 * time.Millisecond},
 		// Short budgets keep half of themselves rather than being consumed by
-		// the margin — a 500ms budget must not become a 0ms one.
+		// the margin - a 500ms budget must not become a 0ms one.
 		{outerMs: 1000, want: 500 * time.Millisecond},
 		{outerMs: MinTimeoutMs, want: 250 * time.Millisecond},
 	}
@@ -43,7 +43,7 @@ func TestRunCommandCapturesStreamsSeparately(t *testing.T) {
 		t.Errorf("stdout = %q, want %q", outcome.Stdout, "out")
 	}
 	if strings.TrimSpace(outcome.Stderr) != "err" {
-		t.Errorf("stderr = %q, want %q — the streams must not be merged", outcome.Stderr, "err")
+		t.Errorf("stderr = %q, want %q - the streams must not be merged", outcome.Stderr, "err")
 	}
 }
 
@@ -74,7 +74,7 @@ func TestRunCommandKillsTheWholeProcessGroupOnTimeout(t *testing.T) {
 	// Without the group kill, the backgrounded sleep would hold the pipes open
 	// and this would take the full WaitDelay on top.
 	if elapsed > 5*time.Second {
-		t.Errorf("the kill took %v — a grandchild is probably still holding stdout", elapsed)
+		t.Errorf("the kill took %v - a grandchild is probably still holding stdout", elapsed)
 	}
 }
 
@@ -114,7 +114,7 @@ func hasEnv(env []string, kv string) bool {
 }
 
 // The default only applies when the ambient environment has not already set the
-// key — which it may have, since `go test` itself runs with GOFLAGS set.
+// key - which it may have, since `go test` itself runs with GOFLAGS set.
 func hasEnvKey(kv string) bool {
 	key, _, _ := strings.Cut(kv, "=")
 	_, ok := os.LookupEnv(key)

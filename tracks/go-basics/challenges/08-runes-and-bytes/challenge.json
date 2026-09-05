@@ -1,0 +1,13 @@
+{
+  "title": "Runes and Bytes",
+  "difficulty": "medium",
+  "order": 8,
+  "published": true,
+  "tags": ["strings", "runes", "unicode"],
+  "estimatedMinutes": 20,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

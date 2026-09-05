@@ -1,0 +1,13 @@
+{
+  "title": "Struct Basics",
+  "difficulty": "easy",
+  "order": 28,
+  "published": true,
+  "tags": ["structs", "types", "fmt"],
+  "estimatedMinutes": 20,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

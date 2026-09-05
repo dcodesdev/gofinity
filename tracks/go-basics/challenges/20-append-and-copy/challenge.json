@@ -1,0 +1,13 @@
+{
+  "title": "Append and Copy",
+  "difficulty": "medium",
+  "order": 20,
+  "published": true,
+  "tags": ["slices", "arrays", "append"],
+  "estimatedMinutes": 25,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

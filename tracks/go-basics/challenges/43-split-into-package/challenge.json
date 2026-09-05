@@ -1,0 +1,15 @@
+{
+  "title": "Split into a Package",
+  "difficulty": "easy",
+  "order": 43,
+  "published": true,
+  "tags": ["packages", "imports", "strings", "functions"],
+  "estimatedMinutes": 20,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "textkit/textkit.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "textkit/textkit_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

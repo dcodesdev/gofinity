@@ -1,0 +1,13 @@
+{
+  "title": "Temperature Conversion",
+  "difficulty": "medium",
+  "order": 9,
+  "published": true,
+  "tags": ["numbers", "math", "fmt"],
+  "estimatedMinutes": 25,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

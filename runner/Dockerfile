@@ -40,7 +40,7 @@ COPY --from=build /out/gofinity-runner /usr/local/bin/gofinity-runner
 COPY --from=prewarm /opt/gocache /opt/gocache
 
 # Everything writable lives under /tmp, which the API mounts as a tmpfs
-# (`exec` included — `go test` builds a binary there and runs it). The rest of
+# (`exec` included - `go test` builds a binary there and runs it). The rest of
 # the filesystem is expected to be read-only at runtime.
 ENV HOME=/tmp \
     GOFINITY_WORKDIR=/tmp/work \

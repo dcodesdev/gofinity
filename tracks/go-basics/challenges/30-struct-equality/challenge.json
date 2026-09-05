@@ -1,0 +1,13 @@
+{
+  "title": "Struct Equality",
+  "difficulty": "medium",
+  "order": 30,
+  "published": true,
+  "tags": ["structs", "maps", "types"],
+  "estimatedMinutes": 30,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

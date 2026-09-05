@@ -13,8 +13,8 @@ import (
 
 // TimeoutMarginMs is how far the runner's own deadline sits below the timeout
 // it was given. The API kills the container at `timeoutMs`; killing the process
-// slightly earlier means a timed-out run still returns a real result — the
-// partial output, the tests that did finish — instead of the API only knowing
+// slightly earlier means a timed-out run still returns a real result - the
+// partial output, the tests that did finish - instead of the API only knowing
 // that the container disappeared.
 const TimeoutMarginMs = 750
 
@@ -40,7 +40,7 @@ type CommandOutcome struct {
 	ExitCode   int
 	TimedOut   bool
 	DurationMs int64
-	// StartErr is set when the command could not be started at all — a missing
+	// StartErr is set when the command could not be started at all - a missing
 	// `go` binary, an unexecutable workspace. It is a runner error, not a user
 	// error.
 	StartErr error
@@ -117,7 +117,7 @@ var childEnvDefaults = map[string]string{
 	// No network exists in the container; `off` fails immediately with a clear
 	// message instead of retrying a proxy that will never answer.
 	"GOPROXY": "off",
-	// Never try to download a different toolchain — see above.
+	// Never try to download a different toolchain - see above.
 	"GOTOOLCHAIN": "local",
 	"GOFLAGS":     "-mod=mod",
 	"CGO_ENABLED": "0",

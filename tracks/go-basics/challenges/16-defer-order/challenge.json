@@ -1,0 +1,13 @@
+{
+  "title": "Defer Order",
+  "difficulty": "easy",
+  "order": 16,
+  "published": true,
+  "tags": ["functions", "defer"],
+  "estimatedMinutes": 20,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

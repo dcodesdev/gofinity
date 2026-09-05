@@ -1,0 +1,13 @@
+{
+  "title": "Parsing with strconv",
+  "difficulty": "medium",
+  "order": 26,
+  "published": true,
+  "tags": ["strings", "strconv", "numbers"],
+  "estimatedMinutes": 25,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

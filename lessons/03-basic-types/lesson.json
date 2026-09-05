@@ -1,0 +1,11 @@
+{
+  "title": "Basic types",
+  "summary": "Go's numbers, strings, bools and runes, why every conversion is explicit, and what a string really holds.",
+  "published": true,
+  "estimatedMinutes": 12,
+  "challenges": [
+    { "track": "go-basics", "challenge": "type-conversions" },
+    { "track": "go-basics", "challenge": "runes-and-bytes" },
+    { "track": "go-basics", "challenge": "temperature-convert" }
+  ]
+}

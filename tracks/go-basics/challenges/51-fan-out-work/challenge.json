@@ -1,0 +1,13 @@
+{
+  "title": "Fan Out Work",
+  "difficulty": "hard",
+  "order": 51,
+  "published": true,
+  "tags": ["concurrency", "goroutines", "generics", "errors"],
+  "estimatedMinutes": 35,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

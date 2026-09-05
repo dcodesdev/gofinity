@@ -1,0 +1,13 @@
+{
+  "title": "Sync Once",
+  "difficulty": "hard",
+  "order": 57,
+  "published": true,
+  "tags": ["concurrency", "sync", "closures", "goroutines"],
+  "estimatedMinutes": 35,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

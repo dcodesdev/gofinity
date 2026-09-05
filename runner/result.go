@@ -1,7 +1,7 @@
 package main
 
 // Sentinels framing the result object on stdout. The runner captures the
-// subprocess's own stdout, so in practice nothing else is printed — but a Go
+// subprocess's own stdout, so in practice nothing else is printed - but a Go
 // panic, a `go` toolchain warning, or a future change could still land on our
 // stdout, and the consumer must not have to guess which line is the result.
 //
@@ -51,7 +51,7 @@ type Result struct {
 	TimedOut   bool  `json:"timedOut"`
 	DurationMs int64 `json:"durationMs"`
 
-	// Error is set only for runner-level failures — a malformed payload, a
+	// Error is set only for runner-level failures - a malformed payload, a
 	// workspace that could not be written, a `go` binary that is not there.
 	// A failing test is not an error; it is Failed > 0.
 	Error string `json:"error,omitempty"`

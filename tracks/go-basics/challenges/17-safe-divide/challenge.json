@@ -1,0 +1,13 @@
+{
+  "title": "Safe Divide",
+  "difficulty": "medium",
+  "order": 17,
+  "published": true,
+  "tags": ["functions", "defer", "panic", "errors"],
+  "estimatedMinutes": 25,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

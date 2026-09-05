@@ -1,0 +1,13 @@
+{
+  "title": "Decoding JSON",
+  "difficulty": "medium",
+  "order": 47,
+  "published": true,
+  "tags": ["json", "structs", "maps", "errors", "types"],
+  "estimatedMinutes": 30,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

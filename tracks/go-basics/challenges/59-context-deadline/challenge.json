@@ -1,0 +1,13 @@
+{
+  "title": "Context Deadlines",
+  "difficulty": "medium",
+  "order": 59,
+  "published": true,
+  "tags": ["concurrency", "context", "errors", "goroutines"],
+  "estimatedMinutes": 30,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

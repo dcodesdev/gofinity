@@ -1,0 +1,13 @@
+{
+  "title": "The Nil Interface Trap",
+  "difficulty": "hard",
+  "order": 36,
+  "published": true,
+  "tags": ["interfaces", "pointers", "errors", "types"],
+  "estimatedMinutes": 35,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

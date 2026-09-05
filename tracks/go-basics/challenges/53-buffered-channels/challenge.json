@@ -1,0 +1,13 @@
+{
+  "title": "Buffered Channels",
+  "difficulty": "medium",
+  "order": 53,
+  "published": true,
+  "tags": ["concurrency", "channels", "goroutines", "slices"],
+  "estimatedMinutes": 30,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

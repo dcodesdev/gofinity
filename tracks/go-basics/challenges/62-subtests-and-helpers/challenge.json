@@ -1,0 +1,13 @@
+{
+  "title": "Subtests and Helpers",
+  "difficulty": "medium",
+  "order": 62,
+  "published": true,
+  "tags": ["testing", "interfaces", "generics", "closures"],
+  "estimatedMinutes": 35,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

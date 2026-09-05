@@ -1,0 +1,11 @@
+{
+  "title": "Maps",
+  "summary": "Go's hash table: the comma-ok lookup, the nil map that reads but cannot be written, random range order, and grouping with map[K][]V.",
+  "published": true,
+  "estimatedMinutes": 13,
+  "challenges": [
+    { "track": "go-basics", "challenge": "map-basics" },
+    { "track": "go-basics", "challenge": "word-count" },
+    { "track": "go-basics", "challenge": "map-of-slices" }
+  ]
+}

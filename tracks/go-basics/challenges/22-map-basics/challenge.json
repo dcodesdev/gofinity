@@ -1,0 +1,13 @@
+{
+  "title": "Map Basics",
+  "difficulty": "easy",
+  "order": 22,
+  "published": true,
+  "tags": ["maps", "slices", "fmt"],
+  "estimatedMinutes": 20,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

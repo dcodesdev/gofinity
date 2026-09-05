@@ -1,0 +1,13 @@
+{
+  "title": "Benchmark Basics",
+  "difficulty": "hard",
+  "order": 63,
+  "published": true,
+  "tags": ["testing", "slices", "strings", "functions"],
+  "estimatedMinutes": 35,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Slice Aliasing",
+  "difficulty": "medium",
+  "order": 21,
+  "published": true,
+  "tags": ["slices", "arrays", "functions"],
+  "estimatedMinutes": 30,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

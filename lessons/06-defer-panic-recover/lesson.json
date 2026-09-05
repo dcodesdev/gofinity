@@ -1,0 +1,11 @@
+{
+  "title": "Defer, Panic and Recover",
+  "summary": "Scheduling cleanup that runs on every exit path, and the two-value machinery Go keeps for the failures that are not error values.",
+  "published": true,
+  "estimatedMinutes": 13,
+  "challenges": [
+    { "track": "go-basics", "challenge": "defer-order" },
+    { "track": "go-basics", "challenge": "safe-divide" },
+    { "track": "go-basics", "challenge": "cleanup-with-defer" }
+  ]
+}

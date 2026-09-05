@@ -25,12 +25,12 @@ if ! docker info >/dev/null 2>&1; then
     echo "FAIL: no Docker daemon, and REQUIRE_DOCKER=1" >&2
     exit 1
   fi
-  echo "SKIP: no Docker daemon reachable — set REQUIRE_DOCKER=1 to make this a failure"
+  echo "SKIP: no Docker daemon reachable - set REQUIRE_DOCKER=1 to make this a failure"
   exit 0
 fi
 
 if ! docker image inspect "$IMAGE" >/dev/null 2>&1; then
-  echo "FAIL: image $IMAGE is not built — run ./build.sh first" >&2
+  echo "FAIL: image $IMAGE is not built - run ./build.sh first" >&2
   exit 1
 fi
 
@@ -145,7 +145,7 @@ run_container() {
 }
 
 # A payload near the size limits is far past the kernel's per-argument limit, so
-# it goes in over stdin — which is also the entrypoint's documented fallback.
+# it goes in over stdin - which is also the entrypoint's documented fallback.
 run_container_stdin() {
   timeout_s="$1"
   runner="docker run --rm -i \
@@ -182,7 +182,7 @@ expect() {
   if printf '%s' "$body" | grep -q -- "$needle"; then
     echo "  ok: $label"
   else
-    echo "  FAIL: $label — expected $needle in:" >&2
+    echo "  FAIL: $label - expected $needle in:" >&2
     printf '    %s\n' "$body" >&2
     FAILURES=$((FAILURES + 1))
   fi
@@ -193,7 +193,7 @@ refute() {
   needle="$2"
   body="$3"
   if printf '%s' "$body" | grep -q -- "$needle"; then
-    echo "  FAIL: $label — did not expect $needle in:" >&2
+    echo "  FAIL: $label - did not expect $needle in:" >&2
     printf '    %s\n' "$body" >&2
     FAILURES=$((FAILURES + 1))
   else

@@ -1,0 +1,13 @@
+{
+  "title": "String Builder",
+  "difficulty": "medium",
+  "order": 27,
+  "published": true,
+  "tags": ["strings", "fmt", "slices"],
+  "estimatedMinutes": 30,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

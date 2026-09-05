@@ -4,6 +4,8 @@ import {
   challengeJsonSchema,
   filePathSchema,
   isEditableByDefault,
+  lessonDirNameSchema,
+  lessonJsonSchema,
   roadmapEntrySchema,
   slugSchema,
   trackJsonSchema,
@@ -243,5 +245,79 @@ describe("isEditableByDefault", () => {
     expect(isEditableByDefault("test")).toBe(false)
     expect(isEditableByDefault("hidden")).toBe(false)
     expect(isEditableByDefault("readonly")).toBe(false)
+  })
+})
+
+const validLesson = {
+  title: "What Go is",
+  summary: "Why Go exists and what a Go program looks like.",
+  published: true,
+  estimatedMinutes: 8,
+  challenges: [
+    { track: "go-basics", challenge: "hello-gofinity" },
+    { track: "go-basics", challenge: "greeting-lines" },
+  ],
+}
+
+describe("lessonDirNameSchema", () => {
+  test("accepts an NN- prefixed slug", () => {
+    expect(lessonDirNameSchema.safeParse("01-what-go-is").success).toBe(true)
+    expect(lessonDirNameSchema.safeParse("22-capstone").success).toBe(true)
+  })
+
+  test("rejects a missing prefix, a one-digit prefix and a non-slug name", () => {
+    expect(lessonDirNameSchema.safeParse("what-go-is").success).toBe(false)
+    expect(lessonDirNameSchema.safeParse("1-what-go-is").success).toBe(false)
+    expect(lessonDirNameSchema.safeParse("01-What_Go_Is").success).toBe(false)
+  })
+})
+
+describe("lessonJsonSchema", () => {
+  test("accepts a well-formed lesson", () => {
+    expect(lessonJsonSchema.safeParse(validLesson).success).toBe(true)
+  })
+
+  test("defaults published to false and leaves the estimate optional", () => {
+    const { published: _p, estimatedMinutes: _e, ...rest } = validLesson
+    const parsed = lessonJsonSchema.safeParse(rest)
+    expect(parsed.success).toBe(true)
+    expect(parsed.data?.published).toBe(false)
+    expect(parsed.data?.estimatedMinutes).toBeUndefined()
+  })
+
+  test("rejects a slug or an order field, both come from the directory name", () => {
+    expect(lessonJsonSchema.safeParse({ ...validLesson, slug: "what-go-is" }).success).toBe(false)
+    expect(lessonJsonSchema.safeParse({ ...validLesson, order: 1 }).success).toBe(false)
+  })
+
+  test("requires between one and four challenges", () => {
+    expect(lessonJsonSchema.safeParse({ ...validLesson, challenges: [] }).success).toBe(false)
+    expect(
+      lessonJsonSchema.safeParse({
+        ...validLesson,
+        challenges: [1, 2, 3, 4, 5].map((n) => ({ track: "go-basics", challenge: `c-${n}` })),
+      }).success,
+    ).toBe(false)
+  })
+
+  test("rejects the same challenge twice", () => {
+    const result = lessonJsonSchema.safeParse({
+      ...validLesson,
+      challenges: [validLesson.challenges[0], validLesson.challenges[0]],
+    })
+    expect(result.success).toBe(false)
+    expect(reason(result)).toContain("same challenge twice")
+  })
+
+  test("rejects a reference that is not a pair of slugs", () => {
+    expect(
+      lessonJsonSchema.safeParse({ ...validLesson, challenges: [{ challenge: "hello" }] }).success,
+    ).toBe(false)
+    expect(
+      lessonJsonSchema.safeParse({
+        ...validLesson,
+        challenges: [{ track: "Go Basics", challenge: "hello" }],
+      }).success,
+    ).toBe(false)
   })
 })

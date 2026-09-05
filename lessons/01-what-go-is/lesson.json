@@ -1,0 +1,10 @@
+{
+  "title": "What Go is",
+  "summary": "Why Go exists, what a program is made of, and how to read your first one.",
+  "published": true,
+  "estimatedMinutes": 8,
+  "challenges": [
+    { "track": "go-basics", "challenge": "hello-gofinity" },
+    { "track": "go-basics", "challenge": "greeting-lines" }
+  ]
+}

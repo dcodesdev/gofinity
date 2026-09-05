@@ -1,0 +1,13 @@
+{
+  "title": "Grade Switch",
+  "difficulty": "medium",
+  "order": 11,
+  "published": true,
+  "tags": ["control-flow", "switch", "strings"],
+  "estimatedMinutes": 20,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

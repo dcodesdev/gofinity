@@ -1,0 +1,11 @@
+{
+  "title": "JSON and Encoding",
+  "summary": "encoding/json works by reflection, which explains every rule it has: exported fields only, tags for names, and two interfaces for when a tag is not enough.",
+  "published": true,
+  "estimatedMinutes": 18,
+  "challenges": [
+    { "track": "go-basics", "challenge": "json-marshal" },
+    { "track": "go-basics", "challenge": "json-decode" },
+    { "track": "go-basics", "challenge": "json-tags" }
+  ]
+}

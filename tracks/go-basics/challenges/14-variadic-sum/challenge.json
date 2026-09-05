@@ -1,0 +1,13 @@
+{
+  "title": "Variadic Sum",
+  "difficulty": "medium",
+  "order": 14,
+  "published": true,
+  "tags": ["functions", "slices", "fmt"],
+  "estimatedMinutes": 25,
+  "files": [
+    { "path": "main.go", "kind": "starter" },
+    { "path": "main_test.go", "kind": "test" },
+    { "path": "go.mod", "kind": "readonly" }
+  ]
+}

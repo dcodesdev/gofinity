@@ -15,7 +15,7 @@ Hello, <name>!
 
 For example, `Greet("Gofinity")` must return `Hello, Gofinity!`.
 
-If `name` is empty, greet the world instead — `Greet("")` must return
+If `name` is empty, greet the world instead - `Greet("")` must return
 `Hello, World!`.
 
 ## Hints
@@ -24,5 +24,5 @@ If `name` is empty, greet the world instead — `Greet("")` must return
   `fmt.Sprintf("Hello, %s!", name)`.
 - A `string` compares to the empty string with `==`, and `len(name) == 0` works
   just as well.
-- Run the tests with the Run button. `main_test.go` is read-only — the same
+- Run the tests with the Run button. `main_test.go` is read-only - the same
   tests run when you submit.
