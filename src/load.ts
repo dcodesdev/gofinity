@@ -1,5 +1,6 @@
 import { readdirSync, readFileSync, statSync } from "node:fs"
 import { join, relative, resolve, sep } from "node:path"
+import { fileURLToPath } from "node:url"
 import {
   type ChallengeFileKind,
   challengeDirNameSchema,
@@ -14,8 +15,16 @@ import {
   trackJsonSchema,
 } from "./schema.ts"
 
-/** Absolute path of this package, the parent of `tracks/` and `lessons/`. */
-export const packageRoot = resolve(import.meta.dir, "..")
+/**
+ * Absolute path of this package, the parent of `tracks/` and `lessons/`.
+ *
+ * `import.meta.url` rather than Bun's `import.meta.dir`, because this module is
+ * also bundled into a Node build by consumers; `import.meta.dir` is `undefined`
+ * there and the path resolution would throw at import time. A bundled consumer
+ * cannot rely on this default pointing anywhere useful and passes an explicit
+ * root to `loadAll` instead, but it must still be able to import the module.
+ */
+export const packageRoot = resolve(fileURLToPath(import.meta.url), "../..")
 
 /** Absolute path of the `tracks/` directory shipped with this package. */
 export const contentRoot = join(packageRoot, "tracks")
