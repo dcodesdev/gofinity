@@ -31,8 +31,22 @@ func TestDecodePayloadAcceptsAMinimalPayload(t *testing.T) {
 	if p.TimeoutMs != DefaultTimeoutMs {
 		t.Errorf("timeoutMs = %d, want the default %d", p.TimeoutMs, DefaultTimeoutMs)
 	}
-	if strings.Join(p.Command, " ") != strings.Join(DefaultCommand, " ") {
-		t.Errorf("command = %v, want the default %v", p.Command, DefaultCommand)
+}
+
+func TestDecodePayloadRejectsACommand(t *testing.T) {
+	// The command is pinned in the runner, not chosen by the payload. An old
+	// producer that still sends one must fail loudly rather than be ignored.
+	encoded := encodePayload(t, map[string]any{
+		"files":   []map[string]string{{"path": "main.go", "content": "package main"}},
+		"command": []string{"go", "run", "."},
+	})
+
+	_, err := DecodePayload(encoded)
+	if err == nil {
+		t.Fatal("expected a payload carrying a command to be rejected")
+	}
+	if !strings.Contains(err.Error(), "command") {
+		t.Errorf("error = %v, want it to name the unknown field", err)
 	}
 }
 
@@ -121,16 +135,6 @@ func TestDecodePayloadRejections(t *testing.T) {
 			name:    "oversized in total",
 			encoded: encodePayload(t, Payload{Files: filesTotalling(MaxTotalBytes + 1)}),
 			want:    "the limit is",
-		},
-		{
-			name:    "non-go command",
-			encoded: encodePayload(t, Payload{Files: manyFiles(1), Command: []string{"sh", "-c", "id"}}),
-			want:    `command must start with "go"`,
-		},
-		{
-			name:    "empty command argument",
-			encoded: encodePayload(t, Payload{Files: manyFiles(1), Command: []string{"go", ""}}),
-			want:    "empty argument",
 		},
 		{
 			name:    "timeout too small",

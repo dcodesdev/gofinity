@@ -4,7 +4,7 @@ The sandbox that executes untrusted Go code: a Docker image, and the Go
 entrypoint inside it.
 
 One container per submission. It receives a base64 JSON payload, writes the
-files into a scratch directory, runs `go test -json`, and prints exactly one
+files into a scratch directory, runs the pinned `go test -json ./...`, and prints exactly one
 JSON object to stdout. It never has a network, never runs as root, and never
 outlives its budget.
 
@@ -35,7 +35,6 @@ hand.
   "files": [                          // 1-64 entries, required
     { "path": "main.go", "content": "package main…" }
   ],
-  "command": ["go", "test", "-json", "./..."], // optional, must start with "go"
   "timeoutMs": 10000                  // optional, 500-30000, default 10000
 }
 ```
@@ -49,8 +48,13 @@ Rejected before anything is written:
 | Bytes total | 1 MiB |
 | Path length | 255 |
 | Path shape | relative, `/`-separated, no empty / `.` / `..` segment |
-| Command | must start with `go` |
 | `timeoutMs` | 500-30 000 |
+
+There is **no** command field. `go test -json ./...` is pinned in `payload.go`
+as `TestCommand` and is the only thing the entrypoint ever runs, so a payload
+cannot pick a different `go` subcommand. Unknown JSON fields are rejected, so a
+producer that still sends `"command"` fails validation rather than being
+quietly ignored.
 
 The path rules are the same ones `packages/gofinity/src/schema.ts` enforces on
 content. Both ends check: content is validated at seed time, submissions at API

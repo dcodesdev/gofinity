@@ -61,8 +61,14 @@ bun test                # the schema and loader tests, over the real tree
 ```
 
 `content:check` exits non-zero on the first problem and names the offending
-path. CI runs both, in a job with no database, no Docker and no browser, so a
-content-only contribution gets a verdict in under a minute.
+path. `.github/workflows/content.yml` runs both on every pull request, plus
+`bun run lint` and `bun run typecheck`, in a job with no database, no Docker and
+no browser. It grades every published challenge, so give it a few minutes.
+
+That workflow rebuilds a minimal workspace root from `.github/workspace-root/`
+before it runs anything: `bunfig.toml` and `tsconfig.json` both point at
+`../../`, which only exists when this repository is checked out as the
+platform's submodule. See that directory's README.
 
 ## Layout
 
@@ -116,7 +122,10 @@ directory names, so they cannot drift out of sync with the JSON.
 
 5. Flip the roadmap entry to `"status": "available"`.
 6. Run `bun run content:check && bun test`. The suite walks the real tree, so a
-   broken contribution fails here rather than in a database.
+   broken contribution fails here rather than in a database. `bun test` includes
+   the check from step 4 for *every* published challenge, which is two `go test`
+   runs each: expect it to take minutes, and use the single-challenge form above
+   while you are still iterating.
 
 ## Add a lesson
 

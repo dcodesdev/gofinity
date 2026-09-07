@@ -27,9 +27,12 @@ const (
 	MinTimeoutMs = 500
 )
 
-// DefaultCommand is what runs when the payload does not specify one.
-// `-json` is what makes the output machine-readable; see parse.go.
-var DefaultCommand = []string{"go", "test", "-json", "./..."}
+// TestCommand is the only command the runner ever runs. It is fixed here
+// rather than taken from the payload: the payload crosses a trust boundary, and
+// a runner that executes what it is told is a runner that can be told to
+// execute something else. `-json` is what makes the output machine-readable;
+// see parse.go.
+var TestCommand = []string{"go", "test", "-json", "./..."}
 
 // PayloadFile is one file to materialize into the scratch workspace.
 type PayloadFile struct {
@@ -37,11 +40,12 @@ type PayloadFile struct {
 	Content string `json:"content"`
 }
 
-// Payload is the entire input to the runner: the workspace to create, the
-// command to run in it, and how long it may take.
+// Payload is the entire input to the runner: the workspace to create, and how
+// long it may take. There is deliberately no command field - see TestCommand.
+// `DisallowUnknownFields` means a payload that still sends one is rejected
+// rather than silently ignored.
 type Payload struct {
 	Files     []PayloadFile `json:"files"`
-	Command   []string      `json:"command,omitempty"`
 	TimeoutMs int           `json:"timeoutMs,omitempty"`
 }
 
@@ -101,7 +105,7 @@ func decodeBase64(s string) ([]byte, error) {
 }
 
 // Validate applies every limit and every shape rule. It also normalizes the
-// two optional fields, so callers never have to think about zero values.
+// one optional field, so callers never have to think about zero values.
 func (p *Payload) Validate() error {
 	if len(p.Files) == 0 {
 		return errors.New("payload must contain at least one file")
@@ -129,20 +133,6 @@ func (p *Payload) Validate() error {
 	}
 	if total > MaxTotalBytes {
 		return fmt.Errorf("payload is %d bytes, the limit is %d", total, MaxTotalBytes)
-	}
-
-	if len(p.Command) == 0 {
-		p.Command = append([]string(nil), DefaultCommand...)
-	}
-	// Defence in depth: the only producer is our own API, but the runner should
-	// not be a way to execute an arbitrary binary if that ever stops being true.
-	if p.Command[0] != "go" {
-		return fmt.Errorf("command must start with %q, got %q", "go", p.Command[0])
-	}
-	for _, arg := range p.Command {
-		if arg == "" {
-			return errors.New("command must not contain an empty argument")
-		}
 	}
 
 	switch {

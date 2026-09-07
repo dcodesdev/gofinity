@@ -1,0 +1,83 @@
+name: content
+
+# The content half of this repository: the tracks, the lessons, the loader and
+# the schemas. `runner.yml` covers `runner/`, and neither workflow runs the
+# other's paths.
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["runner/**", ".github/workflows/runner.yml"]
+  pull_request:
+    paths-ignore: ["runner/**", ".github/workflows/runner.yml"]
+  workflow_dispatch:
+
+concurrency:
+  group: content-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+permissions:
+  contents: read
+
+env:
+  # Pinned to the platform monorepo's root package.json `packageManager`.
+  BUN_VERSION: "1.4.0"
+  # Must match runner/go.mod. `bun test` grades every published challenge by
+  # shelling out to `go test`, so this job needs a Go toolchain.
+  GO_VERSION: "1.25"
+  # Turns the no-toolchain skip in scripts/verify.test.ts into a failure, so the
+  # grading coverage cannot quietly vanish.
+  REQUIRE_GO: "1"
+
+jobs:
+  content:
+    runs-on: ubuntu-latest
+    # Two `go test` runs per published challenge, against the solution and
+    # against the untouched starter. That is minutes, not seconds.
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: packages/gofinity
+    steps:
+      # Checked out where the platform monorepo mounts it, because this
+      # repository's bunfig.toml and tsconfig.json both reference `../../`.
+      # See .github/workspace-root/README.md.
+      - uses: actions/checkout@v4
+        with:
+          path: packages/gofinity
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ env.BUN_VERSION }}
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          # No go.sum anywhere in this repository - the runner is standard
+          # library only, and setup-go's cache errors out without one.
+          cache: false
+
+      - name: Reconstruct the workspace root
+        run: |
+          root=.github/workspace-root
+          cp "$root/root-package.json" "$GITHUB_WORKSPACE/package.json"
+          cp "$root/root-biome.json" "$GITHUB_WORKSPACE/biome.json"
+          cp "$root/root-tsconfig.base.json" "$GITHUB_WORKSPACE/tsconfig.base.json"
+          mkdir -p "$GITHUB_WORKSPACE/test"
+          cp "$root/root-preload.ts" "$GITHUB_WORKSPACE/test/preload.ts"
+
+      # From the reconstructed root, so the workspace and its tooling install
+      # together. There is no committed lockfile here: the monorepo owns it.
+      - name: Install
+        run: bun install
+        working-directory: ${{ github.workspace }}
+
+      # The whole tree through the real schemas: every track, challenge and
+      # lesson, every declared file, every external link.
+      - run: bun run content:check
+
+      - run: bun run lint
+      - run: bun run typecheck
+
+      # The loader and schema tests, plus scripts/verify.test.ts: each published
+      # challenge's tests must pass against its solution and fail against its
+      # untouched starter.
+      - run: bun test

@@ -57,9 +57,9 @@ func execute() *Result {
 		return errorResult(err)
 	}
 
-	outcome := RunCommand(workdir, payload.Command, InternalTimeout(payload.TimeoutMs))
+	outcome := RunCommand(workdir, TestCommand, InternalTimeout(payload.TimeoutMs))
 	if outcome.StartErr != nil {
-		return errorResult(fmt.Errorf("could not start %q: %w", payload.Command[0], outcome.StartErr))
+		return errorResult(fmt.Errorf("could not start %q: %w", TestCommand[0], outcome.StartErr))
 	}
 	return buildResult(outcome)
 }
