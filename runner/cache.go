@@ -13,7 +13,7 @@ import (
 // Why this exists: the container runs with a read-only root filesystem and a
 // tmpfs scratch, so GOCACHE has to live on the tmpfs and starts empty on every
 // run. Compiling the standard library from cold costs far more than the whole
-// 10s budget, so the image pre-warms a cache at /opt/gocache and each run
+// 20s budget, so the image pre-warms a cache at /opt/gocache and each run
 // copies it in. The copy is a few hundred milliseconds against a tmpfs; a cold
 // compile is tens of seconds.
 //

@@ -12,7 +12,7 @@ func TestInternalTimeoutSitsBelowTheOuterKill(t *testing.T) {
 		outerMs int
 		want    time.Duration
 	}{
-		{outerMs: DefaultTimeoutMs, want: 9250 * time.Millisecond},
+		{outerMs: DefaultTimeoutMs, want: 19250 * time.Millisecond},
 		{outerMs: MaxTimeoutMs, want: 29250 * time.Millisecond},
 		// Short budgets keep half of themselves rather than being consumed by
 		// the margin - a 500ms budget must not become a 0ms one.

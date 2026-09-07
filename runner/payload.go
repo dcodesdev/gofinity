@@ -20,7 +20,7 @@ const (
 	MaxPathLen    = 255
 
 	// DefaultTimeoutMs is used when the payload does not ask for one.
-	DefaultTimeoutMs = 10_000
+	DefaultTimeoutMs = 20_000
 	// MaxTimeoutMs caps what a payload may ask for. The outer kill in the API
 	// is the real limit; this stops a payload asking to outlive it by an hour.
 	MaxTimeoutMs = 30_000

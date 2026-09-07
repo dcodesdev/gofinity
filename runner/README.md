@@ -35,7 +35,7 @@ hand.
   "files": [                          // 1-64 entries, required
     { "path": "main.go", "content": "package main…" }
   ],
-  "timeoutMs": 10000                  // optional, 500-30000, default 10000
+  "timeoutMs": 20000                  // optional, 500-30000, default 20000
 }
 ```
 
